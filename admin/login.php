@@ -69,10 +69,20 @@ $pageTitle = 'Đăng nhập quản trị';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($pageTitle) ?></title>
+    <script>
+        try {
+            if (localStorage.getItem('nord-admin-theme') === 'dark') {
+                document.documentElement.dataset.adminTheme = 'dark';
+            }
+        } catch (error) {
+            console.warn('Không thể đọc lựa chọn giao diện quản trị trên trình duyệt.', error);
+        }
+    </script>
     <link rel="stylesheet" href="<?= e(url('assets/css/admin.css')) ?>">
 </head>
 <body class="admin-login-body">
     <div class="admin-login-wrap">
+        <button class="admin-theme-toggle admin-theme-toggle--login" type="button" data-admin-theme-toggle aria-pressed="false">Chế độ tối</button>
         <div class="admin-login">
             <h1><?= e(APP_NAME) ?> · Quản trị</h1>
             <p class="admin-login-sub">Đăng nhập để truy cập khu vực quản trị.</p>
@@ -98,5 +108,6 @@ $pageTitle = 'Đăng nhập quản trị';
             <p class="admin-login-foot"><a href="<?= e(url()) ?>">← Quay lại cửa hàng</a></p>
         </div>
     </div>
+    <script src="<?= e(url('assets/js/admin.js')) ?>"></script>
 </body>
 </html>

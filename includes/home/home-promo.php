@@ -73,7 +73,7 @@ if (is_string($promoLinkPath) && basename($promoLinkPath) === 'category.php') {
                             <ellipse cx="390" cy="170" rx="38" ry="28"/>
                         </g>
                         <text x="50%" y="92%" text-anchor="middle"
-                              font-family="Cormorant Garamond, Georgia, serif"
+                              font-family="Be Vietnam Pro, sans-serif"
                               font-size="36" fill="#5a4a38" letter-spacing="0.2em"
                               opacity="0.6">BỘ SƯU TẬP MỚI</text>
                     </svg>

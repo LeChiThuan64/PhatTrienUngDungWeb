@@ -16,7 +16,7 @@ $pageCss = $pageCss ?? null;
     <meta name="description" content="<?= e($pageDescription) ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= e(url('assets/css/style.css')) ?>">
     <?php if ($isHome): ?>
         <link rel="stylesheet" href="<?= e(url('assets/css/home.css')) ?>">

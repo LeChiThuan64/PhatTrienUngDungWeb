@@ -24,8 +24,8 @@
     --shadow-sm: 0 2px 8px -2px rgba(28, 25, 20, 0.08);
 
     /* Type scale */
-    --font-sans: 'Be Vietnam Pro', 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Be Vietnam Pro', 'Segoe UI', Arial, sans-serif;
+    --font-serif: var(--font-sans);
     --fs-display: clamp(2.25rem, 4.6vw, 3.6rem);
     --fs-h1: clamp(2rem, 3.8vw, 3rem);
     --fs-h2: clamp(1.7rem, 3vw, 2.2rem);

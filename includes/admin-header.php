@@ -7,9 +7,18 @@ $pageTitle = $pageTitle ?? 'Quản trị';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($pageTitle) ?> — <?= e(APP_NAME) ?> Quản trị</title>
+    <script>
+        try {
+            if (localStorage.getItem('nord-admin-theme') === 'dark') {
+                document.documentElement.dataset.adminTheme = 'dark';
+            }
+        } catch (error) {
+            console.warn('Không thể đọc lựa chọn giao diện quản trị trên trình duyệt.', error);
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= e(url('assets/css/admin.css')) ?>">
 </head>
 <body class="admin-body">
@@ -22,6 +31,7 @@ $pageTitle = $pageTitle ?? 'Quản trị';
             <small><?= e(APP_NAME) ?> · Quản trị</small>
         </div>
         <div class="admin-top-meta">
+            <button class="admin-theme-toggle" type="button" data-admin-theme-toggle aria-pressed="false">Chế độ tối</button>
             <span class="admin-top-user">
                 <span class="avatar-letter"><?= e(mb_strtoupper(mb_substr((string) (current_user()['name'] ?? 'A'), 0, 1, 'UTF-8'))) ?></span>
                 <span>

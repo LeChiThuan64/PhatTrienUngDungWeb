@@ -19,8 +19,28 @@ define('BASE_PATH', dirname(__DIR__));
 
 $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-$scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '/');
-$basePath = $scriptDir === '/' ? '' : rtrim($scriptDir, '/');
+$scriptName = str_replace('\\', '/', $_SERVER['SCRIPT_NAME'] ?? '/');
+$scriptFilename = realpath($_SERVER['SCRIPT_FILENAME'] ?? '');
+$appRoot = realpath(BASE_PATH);
+$basePath = '';
+
+if ($scriptFilename !== false && $appRoot !== false) {
+    $appRoot = rtrim(str_replace('\\', '/', $appRoot), '/');
+    $scriptFilename = str_replace('\\', '/', $scriptFilename);
+    $appPrefix = $appRoot . '/';
+
+    if (strncasecmp($scriptFilename, $appPrefix, strlen($appPrefix)) === 0) {
+        $relativeScript = substr($scriptFilename, strlen($appPrefix));
+        $uriSuffix = '/' . str_replace('\\', '/', $relativeScript);
+
+        if (
+            strlen($scriptName) >= strlen($uriSuffix)
+            && strncasecmp(substr($scriptName, -strlen($uriSuffix)), $uriSuffix, strlen($uriSuffix)) === 0
+        ) {
+            $basePath = substr($scriptName, 0, -strlen($uriSuffix));
+        }
+    }
+}
 
 define('BASE_URL', $scheme . '://' . $host . $basePath);
 

@@ -79,7 +79,7 @@ function storefront_placeholder_svg(string $label, string $tone = 'paper'): stri
     $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Placeholder image">';
     $svg .= '<rect width="400" height="400" fill="' . $bg . '"/>';
     $svg .= '<circle cx="200" cy="180" r="78" fill="none" stroke="' . $fg . '" stroke-width="1.5" opacity="0.45"/>';
-    $svg .= '<text x="50%" y="58%" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="120" fill="' . $fg . '" opacity="0.55">' . e($label) . '</text>';
+    $svg .= '<text x="50%" y="58%" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-size="120" fill="' . $fg . '" opacity="0.55">' . e($label) . '</text>';
     $svg .= '</svg>';
     return 'data:image/svg+xml;utf8,' . rawurlencode($svg);
 }
